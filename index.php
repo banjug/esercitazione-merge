@@ -1,7 +1,6 @@
 
 <?php
-    echo $_POST["nome"];
-    echo $_POST["testo"];
+    $_POST["nome"] . " - " . $_POST["testo"];
 ?>
 
 <!DOCTYPE html>
