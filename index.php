@@ -1,3 +1,9 @@
+
+<?php
+    $NAME = $_GET['NAME'];
+    echo 'Nome:' . $NAME;
+?>
+
 <!DOCTYPE html>
 <html lang="it">
     <head>
@@ -54,11 +60,5 @@
                 </div>
             </div>
         </div>
-
-        <?php
-
-            $NAME = $_GET['NAME'];
-            echo 'Nome:' . $NAME;
-        ?>
     </body>
 </html>
