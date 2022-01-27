@@ -1,7 +1,7 @@
 
 <?php
-    $NAME = $_GET['NAME'];
-    echo 'Nome:' . $NAME;
+    echo $_POST["nome"];
+    echo $_POST["testo"];
 ?>
 
 <!DOCTYPE html>
@@ -39,16 +39,16 @@
                     <fieldset>
                         <legend>Inserisci una nota</legend>
                     </fieldset>
-                    <form>
+                    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Nome</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" autocomplete="off">
+                                <input type="text" class="form-control" autocomplete="off" name="nome">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6" name="testo"></textarea>
                             </div>
                         </div>
                         <div class="row">
