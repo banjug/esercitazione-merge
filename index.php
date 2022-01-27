@@ -1,6 +1,23 @@
 
 <?php
-    $_POST["nome"] . " - " . $_POST["testo"];
+    $nome = $_POST["nome"];
+    $testo = $_POST["testo"];
+
+    $file = "note.txt";
+    $fp = fopen($file, 'a+');
+    $fw = fwrite($fp, $nome . " - " . $testo . PHP_EOL);
+    $fc = fclose($fp);
+    if ($fp === false) {
+        echo 'vuoto';
+        exit;
+    }
+    while (!feof($fp)) {
+        $content = fread($fp, 1024);
+        echo $content;        
+    }
+    $fc;
+    
+    // $content = fread($fp, 1024);
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +51,7 @@
                 <div class="col-6 offset-3">
                     <p class="notes">
                         <!-- stampare qui le note salvate -->
+                        
                     </p>
                     <fieldset>
                         <legend>Inserisci una nota</legend>
