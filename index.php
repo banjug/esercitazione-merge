@@ -2,22 +2,20 @@
 <?php
     $nome = $_POST["nome"];
     $testo = $_POST["testo"];
+    $contentArray = [];
 
     $file = "note.txt";
     $fp = fopen($file, 'a+');
     $fw = fwrite($fp, $nome . " - " . $testo . PHP_EOL);
-    $fc = fclose($fp);
+
     if ($fp === false) {
         echo 'vuoto';
         exit;
     }
-    while (!feof($fp)) {
-        $content = fread($fp, 1024);
-        echo $content;        
-    }
+    $contentArray = explode("\n", file_get_contents($file));
+
     $fc;
-    
-    // $content = fread($fp, 1024);
+/*     var_dump($contentArray); */
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +49,12 @@
                 <div class="col-6 offset-3">
                     <p class="notes">
                         <!-- stampare qui le note salvate -->
-                        
+                        <?php
+                        foreach ($contentArray as $riga) {
+                            echo $riga . "<br>" . "<hr>";
+                            
+                        }
+                        ?>
                     </p>
                     <fieldset>
                         <legend>Inserisci una nota</legend>
