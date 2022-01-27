@@ -54,5 +54,11 @@
                 </div>
             </div>
         </div>
+
+        <?php
+
+            $NAME = $_GET['NAME'];
+            echo 'Nome:' . $NAME;
+        ?>
     </body>
 </html>
